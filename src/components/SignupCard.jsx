@@ -37,13 +37,16 @@ export default function SignupCard() {
 
   const handleSendOtp = async () => {
     try {
-      const res = await fetch("/api/users/send-otp", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: inputs.email }),
-      });
+      const res = await fetch(
+        "https://mswd-hackathon-backend.onrender.com/api/users/send-otp",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: inputs.email }),
+        }
+      );
       const data = await res.json();
 
       if (data.error) {
@@ -59,13 +62,16 @@ export default function SignupCard() {
 
   const handleSignup = async () => {
     try {
-      const res = await fetch("/api/users/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(inputs),
-      });
+      const res = await fetch(
+        "https://mswd-hackathon-backend.onrender.com/api/users/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(inputs),
+        }
+      );
       const data = await res.json();
 
       if (data.error) {
@@ -132,7 +138,7 @@ export default function SignupCard() {
                 value={inputs.email}
               />
             </FormControl>
-            
+
             <FormControl isRequired>
               <FormLabel>Password</FormLabel>
               <InputGroup>
@@ -155,7 +161,7 @@ export default function SignupCard() {
                 </InputRightElement>
               </InputGroup>
             </FormControl>
-			{isOtpSent && (
+            {isOtpSent && (
               <FormControl isRequired>
                 <FormLabel>OTP</FormLabel>
                 <Input
