@@ -45,9 +45,12 @@ const Post = ({ post, postedBy }) => {
       e.preventDefault();
       if (!window.confirm("Are you sure you want to delete this post?")) return;
 
-      const res = await fetch(`/api/posts/${post._id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `https://mswd-hackathon-backend.onrender.com/api/posts/${post._id}`,
+        {
+          method: "DELETE",
+        }
+      );
       const data = await res.json();
       if (data.error) {
         showToast("Error", data.error, "error");
