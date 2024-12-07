@@ -15,7 +15,7 @@ export const SocketContextProvider = ({ children }) => {
   const user = useRecoilValue(userAtom);
 
   useEffect(() => {
-    const socket = io("https://mswd-hackathon-backend.onrender.com/", {
+    const socket = io("https://mswd-hackathon-backend.onrender.com", {
       query: {
         userId: user?._id,
       },

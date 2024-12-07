@@ -9,7 +9,7 @@ export default defineConfig({
 		// Get rid of the CORS error
 		proxy: {
 			"/api": {
-				target: "https://mswd-hackathon-backend.onrender.com/",
+				target: "https://mswd-hackathon-backend.onrender.com",
 				changeOrigin: true,
 				secure: false,
 			},
